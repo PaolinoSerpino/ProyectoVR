@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desconec-VR</title>
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <style>
+      html, body { margin: 0; height: 100%; overflow: hidden; background: #1B281E; font-family: system-ui, sans-serif; }
+      #app { position: fixed; inset: 0; }
+      #boot {
+        position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        gap: 18px; background: radial-gradient(circle at 50% 40%, #3A5A40 0%, #1B281E 70%); color: #F4F0EA; z-index: 10;
+      }
+      #boot img { width: 120px; padding: 16px; border-radius: 50%; background: #F4F0EA; filter: drop-shadow(0 6px 18px rgba(0,0,0,.35)); }
+      #boot h1 { margin: 0; letter-spacing: .25em; font-weight: 600; }
+      #boot p { margin: 0; opacity: .8; max-width: 520px; text-align: center; line-height: 1.5; }
+      #boot .actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+      #boot button {
+        font: inherit; font-weight: 600; padding: 12px 22px; border-radius: 999px; border: 2px solid #F4F0EA; cursor: pointer;
+        background: #F4F0EA; color: #1B281E;
+      }
+      #boot button.secondary { background: transparent; color: #F4F0EA; }
+      #boot button:disabled { opacity: .4; cursor: not-allowed; }
+      #crosshair {
+        position: fixed; left: 50%; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%;
+        border: 2px solid rgba(244, 240, 234, .85); pointer-events: none; display: none; z-index: 5;
+      }
+      #desktop-help {
+        position: fixed; left: 12px; bottom: 12px; padding: 10px 14px; border-radius: 10px; background: rgba(27, 40, 30, .78);
+        color: #F4F0EA; font-size: 13px; line-height: 1.5; display: none; z-index: 5; pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="boot">
+      <img src="/logo.png" alt="Desconec-VR" />
+      <h1>DESCONEC-VR</h1>
+      <p id="boot-status">Cargando motor de físicas...</p>
+      <div class="actions">
+        <button id="btn-vr" disabled>Entrar en VR</button>
+        <button id="btn-desktop" class="secondary" disabled>Modo prueba PC</button>
+      </div>
+    </div>
+    <div id="crosshair"></div>
+    <div id="desktop-help">
+      <b>MODO PRUEBA PC</b><br />
+      Mouse: mirar · WASD: moverse · E: agarrar / soltar<br />
+      Clic izq.: martillazo / lanzar / presionar botón · L: volver al lobby · Esc: liberar mouse
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
